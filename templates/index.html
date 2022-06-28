@@ -2,9 +2,155 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <title>COVID_19 최신안전소식</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Noto+Serif+KR:wght@200&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .mytitle {
+            width: 100%;
+            height: 300px;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://img.freepik.com/free-vector/gray-world-map_1484-1143.jpg?w=1480");
+            background-position: center;
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mybox {
+            width: 100%;
+            height: 100%;
+            max-width: 1000px;
+            max-height: 800px;
+            margin: 20px auto auto auto;
+        }
+
+        .list {
+            width: 100%;
+            max-width: 200px;
+            height: 50px;
+            padding: 10px 10px 10px 10px;
+            margin: auto;
+
+        }
+
+        .mofa {
+            width: 100%;
+            max-width: 240px;
+            height: 70px;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)), url("https://blog.kakaocdn.net/dn/bKVfoQ/btqxyLqj3V8/jik3S6mZww8Uk0Zt4mkrP0/img.jpg");
+            background-position: center;
+            background-size: cover;
+            opacity: 0.3;
+            margin: auto auto 50px 30px;
+        }
+    </style>
 </head>
 <body>
-<a href="/db-check">db연결 테스트</a>
+<!--<a href="/db-check">pww 테스트</a>-->
+<div class="mytitle">
+    <h1>COVID-19 최신 안전소식</h1>
+</div>
+<div class="mybox">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">국가</th>
+            <th scope="col">내용</th>
+            <th scope="col">날짜</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>우크라이나</td>
+            <td>우크라이나 무단입국 관련 공지.</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">5</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">7</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">8</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">9</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        <tr>
+            <th scope="row">10</th>
+            <td>중국</td>
+            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
+            <td>2022-03-08</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="list">
+    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-outline-secondary">1</button>
+            <button type="button" class="btn btn-outline-secondary">2</button>
+            <button type="button" class="btn btn-outline-secondary">3</button>
+            <button type="button" class="btn btn-outline-secondary">4</button>
+            <button type="button" class="btn btn-outline-secondary">5</button>
+        </div>
+    </div>
+</div>
+<div class="mofa"></div>
+
 </body>
 </html>
