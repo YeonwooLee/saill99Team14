@@ -63,104 +63,104 @@
         function page_change(num) {
             $('#title-list').empty()
 
-            var response = [];
-            response[0] = {
-                'num': 1,
-                'country': '우크라이나',
-                'title': '우크라이나 무단입국 관련 공지.',
-                'date': '2022-03-08'
-            }
-            response[1] = {
-                'num': 2,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[2] = {
-                'num': 3,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[3] = {
-                'num': 4,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[4] = {
-                'num': 5,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[5] = {
-                'num': 6,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[6] = {
-                'num': 7,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[7] = {
-                'num': 8,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[8] = {
-                'num': 9,
-                'country': '중국',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[9] = {
-                'num': 10,
-                'country': '파키스탄',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[10] = {
-                'num': 11,
-                'country': '인도',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            response[11] = {
-                'num': 12,
-                'country': '스리랑카',
-                'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
-                'date': '2022-03-08'
-            }
-            window.open("http://localhost:63342/saill99Team14/templates/window.html?_ijt=ludk3m9llt1tjk4d2nfaht67ve&_ij_reload=RELOAD_ON_SAVE","바보")
-            let rows = response
-            let page_start = num * 10
-            let page_end = page_start + 10
-            for (let i = page_start; i < page_end; i++) {
-                let num = rows[i]['num']
-                let country = rows[i]['country']
-                let title = rows[i]['title']
-                let date = rows[i]['date']
-                let temp_html = `<tr>
+            // var response = [];
+            // response[0] = {
+            //     'num': 1,
+            //     'country': '우크라이나',
+            //     'title': '우크라이나 무단입국 관련 공지.',
+            //     'date': '2022-03-08'
+            // }
+            // response[1] = {
+            //     'num': 2,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[2] = {
+            //     'num': 3,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[3] = {
+            //     'num': 4,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[4] = {
+            //     'num': 5,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[5] = {
+            //     'num': 6,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[6] = {
+            //     'num': 7,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[7] = {
+            //     'num': 8,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[8] = {
+            //     'num': 9,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[9] = {
+            //     'num': 10,
+            //     'country': '파키스탄',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[10] = {
+            //     'num': 11,
+            //     'country': '인도',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[11] = {
+            //     'num': 12,
+            //     'country': '스리랑카',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // window.open("http://localhost:63342/saill99Team14/templates/window.html?_ijt=ludk3m9llt1tjk4d2nfaht67ve&_ij_reload=RELOAD_ON_SAVE","바보")
+
+            $.ajax({
+                type: "GET",
+                url: "/coivd",
+                data: {},
+                success: function (response) {
+                    let rows = response
+                    let page_start = num * 10
+                    let page_end = page_start + 10
+                    for (let i = page_start; i < page_end; i++) {
+                        let num = rows[i]['num']
+                        let country = rows[i]['country']
+                        let title = rows[i]['title']
+                        let date = rows[i]['date']
+                        let temp_html = `<tr>
                                     <th scope="row">${num}</th>
                                     <td>${country}</td>
-                                    <td><a href="#">${title}</a></td>
+                                    <td>${title}</td>
                                     <td>${date}</td>
                                 </tr>`
-                $('#title-list').append(temp_html)
-            }
-            // $.ajax({
-            //     type: "GET",
-            //     url: "/coivd",
-            //     data: {},
-            //     success: function (response) {
-            //
-            //     }
-            // });
+                        $('#title-list').append(temp_html)
+                    }
+                }
+            });
         }
     </script>
 </head>
