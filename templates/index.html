@@ -17,7 +17,6 @@
         * {
             font-family: 'Noto Serif KR', serif;
         }
-
         .mytitle {
             width: 100%;
             height: 300px;
@@ -30,7 +29,6 @@
             justify-content: center;
             align-items: center;
         }
-
         .mybox {
             width: 100%;
             height: 100%;
@@ -38,7 +36,6 @@
             max-height: 800px;
             margin: 20px auto auto auto;
         }
-
         .list {
             width: 100%;
             max-width: 200px;
@@ -47,7 +44,6 @@
             margin: auto;
 
         }
-
         .mofa {
             width: 100%;
             max-width: 240px;
@@ -59,6 +55,113 @@
             margin: auto auto 50px 30px;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            page_change(0)
+        })
+
+        function page_change(num) {
+            $('#title-list').empty()
+
+            // var response = [];
+            // response[0] = {
+            //     'num': 1,
+            //     'country': '우크라이나',
+            //     'title': '우크라이나 무단입국 관련 공지.',
+            //     'date': '2022-03-08'
+            // }
+            // response[1] = {
+            //     'num': 2,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[2] = {
+            //     'num': 3,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[3] = {
+            //     'num': 4,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[4] = {
+            //     'num': 5,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[5] = {
+            //     'num': 6,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[6] = {
+            //     'num': 7,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[7] = {
+            //     'num': 8,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[8] = {
+            //     'num': 9,
+            //     'country': '중국',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[9] = {
+            //     'num': 10,
+            //     'country': '파키스탄',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[10] = {
+            //     'num': 11,
+            //     'country': '인도',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+            // response[11] = {
+            //     'num': 12,
+            //     'country': '스리랑카',
+            //     'title': '홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)',
+            //     'date': '2022-03-08'
+            // }
+
+            $.ajax({
+                type: "GET",
+                url: "/coivd",
+                data: {},
+                success: function (response) {
+                    let rows = response
+                    let page_start = num * 10
+                    let page_end = page_start + 10
+                    for (let i = page_start; i < page_end; i++) {
+                        let num = rows[i]['num']
+                        let country = rows[i]['country']
+                        let title = rows[i]['title']
+                        let date = rows[i]['date']
+                        let temp_html = `<tr>
+                                    <th scope="row">${num}</th>
+                                    <td>${country}</td>
+                                    <td>${title}</td>
+                                    <td>${date}</td>
+                                </tr>`
+                        $('#title-list').append(temp_html)
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 <!--<a href="/db-check">pww 테스트</a>-->
@@ -75,78 +178,78 @@
             <th scope="col">날짜</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>우크라이나</td>
-            <td>우크라이나 무단입국 관련 공지.</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">4</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">5</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">6</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">7</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">8</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">9</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
-        <tr>
-            <th scope="row">10</th>
-            <td>중국</td>
-            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>
-            <td>2022-03-08</td>
-        </tr>
+        <tbody id="title-list">
+<!--        <tr>-->
+<!--            <th scope="row">1</th>-->
+<!--            <td></td>-->
+<!--            <td>우크라이나 무단입국 관련 공지.</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">2</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">3</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">4</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">5</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">6</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">7</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">8</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">9</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="row">10</th>-->
+<!--            <td>중국</td>-->
+<!--            <td>홍콩 입국 및 격리 관련 정보 (대한민국에서 출발하는 경우)</td>-->
+<!--            <td>2022-03-08</td>-->
+<!--        </tr>-->
         </tbody>
     </table>
 </div>
 <div class="list">
     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
         <div class="btn-group me-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-outline-secondary">1</button>
-            <button type="button" class="btn btn-outline-secondary">2</button>
-            <button type="button" class="btn btn-outline-secondary">3</button>
-            <button type="button" class="btn btn-outline-secondary">4</button>
-            <button type="button" class="btn btn-outline-secondary">5</button>
+            <button onclick="page_change(0)" type="button" class="btn btn-outline-secondary">1</button>
+            <button onclick="page_change(1)" type="button" class="btn btn-outline-secondary">2</button>
+            <button onclick="page_change(2)" type="button" class="btn btn-outline-secondary">3</button>
+            <button onclick="page_change(3)" type="button" class="btn btn-outline-secondary">4</button>
+            <button onclick="page_change(4)" type="button" class="btn btn-outline-secondary">5</button>
         </div>
     </div>
 </div>
