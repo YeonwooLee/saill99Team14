@@ -30,8 +30,13 @@ def dbCheck():
 #요청받으면 api요청 -> 정리해서 db등록 -> db에서 꺼내옴
 @app.route("/coivd", methods=["GET"])
 def covidAlertget():
-    datas = covidService.covidAlertsGet()
+    insertAt=request.args.get('insertAt')
 
+    if insertAt==None:
+        datas = covidService.covidAlertsGet()
+    else:
+        datas = covidService.covidBoardOne(insertAt)
+        print("data type = ", type(datas))
     return jsonify(datas) #데이터 리턴시 이렇게
 
 #데이터갱신
