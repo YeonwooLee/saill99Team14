@@ -92,31 +92,31 @@
             });
         }
         function window_open(insertAt){
-            console.log(insertAt)
-            window.open('http://localhost:63342/saill99Team14/templates/window.html?_ijt=4i8ennc03c9f91253nrb4t71ti&_ij_reload=RELOAD_ON_SAVE', 'COIVD_19 Pop-up', 'width=700px,height=800px,scrollbars=yes');
-            // window.open('http://localhost:5000/coivd/3', 'COIVD_19 Pop-up', 'width=700px,height=800px,scrollbars=yes');
+            var code = insertAt
+            $.ajax({
+                type: "GET",
+                url: '/coivd?insertAt='+code,
+                data: {},
+                success: function (response) {
+                    // window.open(url_code, 'COIVD_19 Pop-up', 'width=700px,height=800px,scrollbars=yes');
+                    alert("성공")
+                    console.log(response)
+                }
+            });
+        }
 
-            // $.ajax({
-            //     type: "GET",
-            //     url: "/covid_child",
-            //     data: {},
-            //     success: function (response) {
-            //
-            //     }
-            //
-            // });
-        }
-        function test() {
-            let a = 'http://'
-            let b = 'localhost'
-            let c = a & b
-            console.log(c)
-        }
+        // function test() {
+        //     let ggg = 1656546116855355800
+        //     let url = 'http://localhost:5000/coivd/'
+        //     let code = ggg
+        //     let url_code = url + code
+        //     console.log(url_code)
+        // }
     </script>
 </head>
 <body>
 <!--<a href="/db-check">pww 테스트</a>-->
-<div><button onclick="test()"></button></div>
+<!--<div><button onclick="test()">dddd</button></div>-->
 <div class="mytitle">
     <h1>COVID-19 최신 안전소식</h1>
 </div>
