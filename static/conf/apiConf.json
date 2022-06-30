@@ -1,0 +1,17 @@
+{
+    "covidAlert": {
+        "url": "http://apis.data.go.kr/1262000/SafetyNewsList/getCountrySafetyNewsList",
+        "confTblRowId": "11",
+        "params":{
+            "ServiceKey":"zQ4fhkQgN6k8Gw8LeLCasQHG7zwZEwxkPpMkUYxoYYS6lgytgOvLQbWoELmmh7hRlOatG9LHK9NoaOVFlf7oEQ==",
+            "numOfRows": 50,
+            "pageNo": 1,
+            "title1": "코로나",
+            "title2": "",
+            "title3": "",
+            "title4": "",
+            "title5": ""
+        }
+    }
+
+}
