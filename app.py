@@ -35,10 +35,15 @@ def covidAlertget():
     if insertAt==None:
         print("게시글 리스트 요청")
         datas = covidService.covidAlertsGet()
+        for i in datas:
+            print(i['title'], "insertAt:", i['insertAt'])
+            i['insertAt'] = str(i['insertAt'])
+
     else:
         print("게시글 내용 요청 insertAt:",insertAt)
         datas = covidService.covidBoardOne(insertAt)
-        print("data = ", datas['title'])
+        print("data = ", datas['title'], datas['insertAt'])
+
     return jsonify(datas) #데이터 리턴시 이렇게
 
 #데이터갱신

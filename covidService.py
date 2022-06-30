@@ -14,8 +14,17 @@ def covidAlertsGet(numData=50,subject='covidAlert'):
     #         continue
 
     dataFromDb = dbControl.get_all_data(subject)
+    # for i in dataFromDb:
+    #     print(i['title'], i['insertAt'])
     dataFromDb=dataFromDb[:numData]#클라이언트에 넘겨줄 데이터
+    
+
     dataFromDb.sort(key=lambda x:x['insertAt']) #정렬 - 삽입시간
+    # print("@"*100)
+    # for i in dataFromDb:
+    #     print(i['title'], i['insertAt'])
+    dataFromDb = dataFromDb[:numData]  # 클라이언트에 넘겨줄 데이터
+
     #dataFromDb.sort(key=lambda x: x['wrtDt'])  # 정렬 - 날짜
     #dataFromDb.sort(key=lambda x: x['title']) #정렬 - 제목
     # print("!!!@@@")
@@ -25,6 +34,8 @@ def covidAlertsGet(numData=50,subject='covidAlert'):
     for i in dataFromDb:
         i['num']=num
         num+=1
+
+
     return dataFromDb
 
 #post요청 covid 갱신지점 아직 없음
@@ -43,9 +54,9 @@ def covidBoardOne(insertAt):
 
 
 if __name__=="__main__":
-    print(covidBoardOne('1656546117223814700'))
+    #print(covidBoardOne('1656546117223814700'))
 
-    # temp = covidAlertsGet(50)
+    temp = covidAlertsGet(50)
 
     #apiUtil.write_json()
     # for i in temp:
