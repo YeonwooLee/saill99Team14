@@ -70,7 +70,6 @@
                 url: "/coivd",
                 data: {},
                 success: function (response) {
-
                     let rows = response
                     let page_start = num * 10
                     let page_end = page_start + 10
@@ -83,7 +82,7 @@
                         let temp_html = `<tr>
                                             <th scope="row">${count}</th>
                                             <td>${countryName}</td>
-                                            <td><a href="" onclick="window_open(${insertAt})" class="title">${title}</a></td>
+                                            <td><a href="/coivd?insertAt=${insertAt}" class="title">${title}</a></td>
                                             <td>${wrtDt}</td>
                                         </tr>`
                         $('#title-list').append(temp_html)
@@ -92,6 +91,7 @@
             });
         }
         function window_open(insertAt){
+            console.log("window_open called");
             var code = insertAt
             $.ajax({
                 type: "GET",
