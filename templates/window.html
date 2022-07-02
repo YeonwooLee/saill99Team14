@@ -30,16 +30,22 @@
         }
     </style>
     <script>
-        function test() {
-            // console.log(window.opener.a)
+        $(document).ready(function () {
+            getParent()
+        })
+
+        function getParent(){
+            let abc = opener.window.page_code
+            console.log(abc)
         }
+
     </script>
 </head>
 <body>
 <div>
-    <button onclick="test()">테스트</button>
+    <button onclick="getParent()">테스트</button>
 </div>
-<div class="empty-box"></div>
+<div id="child" class="empty-box"></div>
 <div class="card-box">
     <div class="card-group" style="max-width: 800px">
         <div class="card">
