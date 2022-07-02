@@ -1,6 +1,9 @@
 import apiUtil
 import pymongo
 import dbControl
+import requests
+import certifi
+ca = certifi.where()
 
 #get요청 covid
 def covidAlertsGet(numData=50,subject='covidAlert'):
@@ -52,13 +55,16 @@ def covidBoardOne(insertAt):
     insertAt = int(insertAt)
     return dbControl.get_one_covid(insertAt)
 
+def flag(nameNationKorea):
+
+    apiUtil.setParam('flag','cond[country_nm::EQ]',nameNationKorea) #국가면 설정
+    url = apiUtil.url_maker('flag')
+
+    res = requests.get(url,verify=False) #호출
+    return res.json()['data'][0]['download_url']
+
+
 
 if __name__=="__main__":
-    #print(covidBoardOne('1656546117223814700'))
 
-    temp = covidAlertsGet(50)
-
-    #apiUtil.write_json()
-    # for i in temp:
-    #     print(i['title'],i['wrtDt'],i['id'],i['insertAt'])
-
+    print(flag("대한민국"))

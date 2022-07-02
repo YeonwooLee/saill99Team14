@@ -16,12 +16,13 @@ app = Flask(__name__)
 @app.route('/')
 def home():
 
-    return render_template('index.html') #템플릿 리턴시 이렇게
+    return render_template('index2.html') #템플릿 리턴시 이렇게
 
 @app.route('/db-check')
 def dbCheck():
     temp_data = {"time":datetime.now()}
     db.testTbl.insert_one(temp_data) #db에 현재시간 입력
+
     connectTimes= list(db.testTbl.find({},{'_id':False}))
     lastConnect = connectTimes[-1]
     return jsonify({'전체 접속 시간':connectTimes,'마지막 접속시간':lastConnect}) #데이터 리턴시 이렇게
@@ -43,6 +44,9 @@ def covidAlertget():
         print("게시글 내용 요청 insertAt:",insertAt)
         datas = covidService.covidBoardOne(insertAt)
         print("data = ", datas['title'], datas['insertAt'])
+        # return datas['contentHtml'] # 제공되는 html 사용시
+        return render_template('window2.html',datas=datas) #자체 html 사용시
+
 
     return jsonify(datas) #데이터 리턴시 이렇게
 
@@ -50,6 +54,15 @@ def covidAlertget():
 @app.route("/coivd", methods=["POST"])
 def covidAlertpost():
     datas = covidService.covidAlertsPost()
+
+    return jsonify(datas) #
+
+#국기 이미지 요청 /flag?nnk=국가명
+@app.route("/flag", methods=["GET"])
+def flagLink():
+    nameNationKorea = request.args.get('nnk')
+    print('nameNationKorea=',nameNationKorea)
+    datas = {'flagImgUrl':covidService.flag(nameNationKorea=nameNationKorea)}
 
     return jsonify(datas) #
 

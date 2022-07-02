@@ -13,7 +13,10 @@ def write_json(filename, data):
     with open(str(filename) + '.json', 'w', encoding='UTF-8-sig') as file:
         file.write(json.dumps(data, ensure_ascii=False))
 
-def url_maker(subjectDict):
+def url_maker(subject):
+
+    subjectDict = load_json('static/conf/apiConf')[subject]
+
     url = subjectDict['url']
     params = subjectDict['params']
 
@@ -26,6 +29,7 @@ def url_maker(subjectDict):
                 continue
             url += param+"="+str(params[param])+"&"
         url = url[:-1] #끝 & 제거
+    # print("url = ",url)
     return url
 
 def reqGetXml(url):
@@ -57,24 +61,18 @@ def xmlsToDicts(xmlStr):
 
 
 def finalDict(subject):
-    apiConf = load_json('static/conf/apiConf')
-
-    subjectName = subject
-    subjectDict = apiConf[subjectName]
-
-    url = url_maker(subjectDict)
+    url = url_maker(subject)
     xmlStr = reqGetXml(url)
     results = xmlsToDicts(xmlStr)
     return results
 
+def setParam(subject,param,value):
+    datas = load_json('static/conf/apiConf')
+    datas[subject]['params'][param]=value
+    write_json('static/conf/apiConf',datas)
+
+
 
 if __name__=="__main__":
-    apiConf = load_json('static/conf/apiConf')
-
-    subjectName = 'corona'
-    subjectDict = apiConf[subjectName]
-
-    url = url_maker(subjectDict)
-    xmlStr = reqGetXml(url)
-    results = xmlsToDicts(xmlStr)
+    setParam("flag",'pageNo',33333)
 
