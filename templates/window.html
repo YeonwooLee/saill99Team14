@@ -35,8 +35,22 @@
         })
 
         function getParent(){
-            let abc = opener.window.page_code
-            console.log(abc)
+            let recive_list = opener.window.send_list
+            let flag = recive_list['flag']
+            let content = recive_list['content']
+            let title = recive_list['title']
+            let wrtDt = recive_list['wrtDt']
+            let temp_html = `<img src="https://t1.daumcdn.net/cfile/tistory/222E14375537375923" class="card-img-top" alt="..."
+                 style="max-width:400px; max-height:250px; margin:40px auto 30px auto">
+                            <div class="card-body">
+                                <h5 class="card-title">${title}</h5>
+                                <p class="card-text">${content}</p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">${wrtDt}</small>
+                            </div>`
+            $('#window-card').append(temp_html)
+
         }
 
     </script>
@@ -48,22 +62,8 @@
 <div id="child" class="empty-box"></div>
 <div class="card-box">
     <div class="card-group" style="max-width: 800px">
-        <div class="card">
-            <img src="https://t1.daumcdn.net/cfile/tistory/222E14375537375923" class="card-img-top" alt="..."
-                 style="max-width:400px; max-height:250px; margin:40px auto 30px auto">
-            <div class="card-body">
-                <h5 class="card-title">독일 프랑크푸르트 코로나19 예방안내</h5>
-                <p class="card-text">신종 코로나바이러스 예방안내1.24(금) 저녁 프랑스 보건부는 유럽에서 처음으로 보르도와 파리에서 신종 코로나바이러스(우한폐렴) 감염 확진자 3명이
-                    확인되었다고 발표했으며, 1.26(일) 독일 베를린, 프랑크푸르트, 뮌헨 등에서 감염 의심환자 발견(음성판정) 등 최근 중국 후베이성 우한시에서 처음 발견 된 신종 코로나바이러스가
-                    전세계로 확산 중 입니다.​질병관리본부에서 배포한 신종 코로나바이러스감염증 예방수칙을 게시하오니, 독일에 거주 및 방문 중이거나 여행을 계획하는 우리 국민들께서는 행동수칙을
-                    확인하시고
-                    감염 예방에 유의하시길 바랍니다.​동 바이러스 관련 또는 이외 불의의 사고나 신변안전 관련 사건사고 발생 시에는 아래 주프랑크푸르트총영사관 또는 외교부 영사콜센터로 연락하셔서
-                    도움을
-                    받으시기 바랍니다.o 주프랑크푸르트총영사관 +49-69-9567-520(주간), +49-173-3634-854(야간주말)o 영사콜센터: +82-2-3210-0404</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">2020-01-27</small>
-            </div>
+        <div id="window-card" class="card">
+
         </div>
     </div>
 </div>

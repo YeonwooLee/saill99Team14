@@ -84,58 +84,44 @@
                                             <th scope="row">${count}</th>
                                             <td>${countryName}</td>
                                             <td><a onclick="window_open(${insertAt})" class="title" title="COVID_19 최신 안전소식 내용보기">${title}</a></td>-->
-<!--                                        <td><a href="http://localhost:63342/saill99Team14/templates/window.html?_ijt=dgj2ad0ql4s1go6dde022mb029&_ij_reload=RELOAD_ON_SAVE" class="title" target="_blank" title="COVID_19 최신 안전소식 내용보기">${title}</a></td>-->
-<!--                                        <td><a href="coivd?insertAt=${insertAt}" class="title" target="_blank" title="COVID_19 최신 안전소식 내용보기">${title}</a></td>-->
                                             <td>${wrtDt}</td>
                                         </tr>`
                         $('#title-list').append(temp_html)
-
-                        //개발중
                     }
                 }
             });
         }
 
-
-        //page_code 전역변수 설정; 요청할 insertAt값을 window.html로 전달할 용도
-        var page_code;
+        //send_list 전역변수 설정; 요청할 insertAt값을 window.html로 전달할 용도
+        var send_list;
         function window_open(insertAt){
-            page_code = insertAt
-            alert("성공")
+            var code = insertAt
+            $.ajax({
+                type: "GET",
+                url: '/coivd?insertAt='+code,
+                data: {},
+                success: function (response) {
+                    let flag = response['flag']
+                    let content = response['content']
+                    let title = response['title']
+                    let wrtDt = response['wrtDt']
+                    send_list = {
+                        'flag': flag,
+                        'content': content,
+                        'title': title,
+                        'wrtDt': wrtDt
+                    }
+                }
+            });
             // window.name = "부모창 이름";
             window.name = "parentForm";
             // window.open("open할 window", "자식창 이름", "팝업창 옵션");
             window.open("window.html",
-                    "childForm", page_code, "width=1000, height=700, resizable = no, scrollbars = no");
-            // location.href = "http://localhost:63342/saill99Team14/templates/window.html?_ijt=dgj2ad0ql4s1go6dde022mb029&_ij_reload=RELOAD_ON_SAVE"
-            // $.ajax({
-            //     type: "GET",
-            //     url: '/coivd?insertAt='+page_code,
-            //     data: {},
-            //     success: function (response) {
-            //         let flag = rows[i]['flag']
-            //         let countryName = rows['countryName']
-            //         let title = rows['title']
-            //         let wrtDt = rows['wrtDt']
-            //         let send_list = {
-            //             'flag': flag,
-            //             'countryName': countryName,
-            //             'title': title,
-            //             'wrtDt': wrtDt
-            //         }
-            //         $('#send_data').val(send_list)
-            //
-            //     }
-            // });
+                    "childForm", send_list, "width=1000, height=700, resizable = no, scrollbars = no");
         }
     </script>
 </head>
 <body>
-<!--<a href="/db-check">pww 테스트</a>-->
-<div>
-    <button onclick="window_open()">test 버튼</button>
-    <button onclick="saytest()">return</button>
-</div>
 <div class="mytitle">
     <h1>COVID-19 최신 안전소식</h1>
 </div>
