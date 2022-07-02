@@ -12,11 +12,15 @@ db = client.dbCovid
 app = Flask(__name__)
 
 
-
 @app.route('/')
 def home():
 
     return render_template('index.html') #템플릿 리턴시 이렇게
+
+@app.route('/window.html')
+def window():
+
+    return render_template('window.html') #템플릿 리턴시 이렇게
 
 @app.route('/db-check')
 def dbCheck():
